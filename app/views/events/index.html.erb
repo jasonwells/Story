@@ -1,0 +1,26 @@
+<div class="indexlist">
+<h1>All Events</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Person</th>
+    <th>Event date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr class="<%= cycle('oddrow','evenrow') %>">
+    <td><%= link_to event.title, event %></td>
+    <td><%= event.person.full_name %></td>
+    <td><%= event.event_date %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Add Event', new_event_path %>
+</div>

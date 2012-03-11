@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<article>
+<h1><%= @photo.title %></h1>
+<div class="photo">
+<%= image_tag @photo.photo.url %>
+</div>
+
+<p>
+  <b>Person:</b>
+  <%= if @photo.person then link_to @photo.person.full_name, person_path(@photo.person) end %>
+</p>
+
+<p>
+  <b>Event:</b>
+  <%= if @photo.event then link_to @photo.event.title, event_path(@photo.event) end %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= markdown(@photo.notes) %>
+</p>
+
+<p class="credit">
+  <%= taken_attribute(@photo) %>
+</p>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
+</article>

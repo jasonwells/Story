@@ -1,0 +1,70 @@
+article {
+    margin: 0 auto 50px auto;
+    width: 800px;
+    
+    img {
+        border-radius: 2px;
+        display: block;
+    	background: #eaeaea;
+    	padding: 6px;
+    	border: solid 1px #d6d6d6;
+    }
+    
+    .credit {
+        color: #C1150A;
+        font-size: 1.1em;
+        font-style:italic;
+    }
+}
+
+.indexlist, .summary {
+    margin: 8px 8px 50px 8px;
+    td {
+        padding: 4px;
+    }
+}
+
+#title {
+    font-size:2em;
+}
+
+#subtitle {
+    font-weight: normal;
+}
+
+#topbanner {
+    background-color: #C1150A;
+    padding: 8px;
+    
+    a:link {color: #FFF; text-decoration:none; border-bottom: 1.5px dotted #BBB;}
+    a:active {color: #FFF; text-decoration:none; border-bottom: 1.5px dotted #BBB;}
+    a:visited {color: #FFF; text-decoration:none; border-bottom: 1.5px dotted #BBB;}
+    a:hover {color: #FFF; background-color: inherit; border-bottom: 1.5px dotted #FFF;}
+}
+
+.oddrow {
+    background-color: #DDD;
+    padding: 4px;
+    font-size: 1.2em;
+}
+
+.evenrow {
+    background-color: #EEE;
+    padding: 4px;
+    font-size: 1.2em;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.content textarea {
+    width: 600px;
+    height: 250px;
+}
+
+.notes textarea {
+    height: 80px;
+    width: 600px;
+}

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<article>
+<h1 id="title">
+  <%= @event.title %>
+</h1>
+<h2 id="subtitle">
+    An event from the life of
+    <%= @event.person.full_name %>
+</h2>
+
+<div>
+  <%= markdown(@event.content) %>
+</div>
+
+<p>
+  <b>Notes:</b>
+  <%= markdown(@event.notes) %>
+</p>
+
+<% @event.photos.each do |p| %>
+    <div class="photo">
+    <%= image_tag(p.photo.url) %>
+    <p><%= link_to p.title, photo_path(p) %></p>
+    </div>
+<% end %>
+
+<p class="credit"> 
+    <%= approx_attribute(@event) %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Add Photo', new_photo_path(:event_id => @event.id) %> |
+<%= link_to 'Back', person_path(@event.person) %>
+</article>

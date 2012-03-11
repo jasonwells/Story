@@ -1,0 +1,29 @@
+<div class="indexlist">
+<h1>All Photos</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Event</th>
+    <th>Person</th>
+    <th>Date taken</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr class="<%= cycle('oddrow','evenrow') %>">
+    <td><%= link_to photo.title, photo %></td>
+    <td><%= if photo.event then photo.event.title end %></td>
+    <td><%= if photo.person then photo.person.full_name end %></td>
+    <td><%= photo.date_taken %></td>
+    <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
+    <td><%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add Photo', new_photo_path %>
+</div>

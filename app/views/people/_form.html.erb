@@ -1,0 +1,57 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :middle_name %><br />
+    <%= f.text_field :middle_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :birth %><br />
+    <%= f.date_select :birth, {:start_year => 1800, :include_blank => true} %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_place %><br />
+    <%= f.text_field :birth_place %>
+  </div>
+  <div class="field">
+    <%= f.label :death %><br />
+    <%= f.date_select :death, {:start_year => 1800, :include_blank => true} %>
+  </div>
+  <div class="field">
+    <%= f.label :death_place %><br />
+    <%= f.text_field :death_place %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select(:gender, Person::GENDERS, {:prompt => 'Select'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :father %><br />
+    <%= f.select(:father_id, Person.all.collect {|p| [p.full_name, p.id]}, {:prompt => 'Select'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :mother %><br />
+      <%= f.select(:mother_id, Person.all.collect {|p| [p.full_name, p.id]}, {:prompt => 'Select'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

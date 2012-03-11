@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  notes: MyText
+  person: 
+  event_date: 2011-12-05
+  approximate: false
+
+two:
+  title: MyString
+  content: MyText
+  notes: MyText
+  person: 
+  event_date: 2011-12-05
+  approximate: false

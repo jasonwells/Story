@@ -1,0 +1,104 @@
+<div class="person">
+    <p id="notice"><%= notice %></p>
+    <div>
+        <h1>
+        <%= style_name(@person) %>
+        <%= image_tag gender_image(@person) %>
+        </h1>
+
+        <p>
+          <b>Born:</b>
+          <%= birth_info(@person) %>
+        </p>
+
+        <% if @person.death then %>
+        <p>
+          <b>Death:</b>
+            <%= death_info(@person) %>
+        </p>
+        <% end %>
+    </div>
+
+    <!-- Only display children if there are any -->
+    <% if @person.children.length > 0 then %>
+    <h2>Children</h2>
+    <% @person.children.each do |p| %>
+    <div class="<%= cycle('oddrow','evenrow') %>">
+    <%= link_to image_tag("/assets/leftarrow.png"), person_path(p) %>
+    <%= p.full_name %>
+    </div>
+    <% end %>
+    <% end %>
+
+    <h2>Events</h2>
+    <ul>
+    <% @person.events.each do |event| %>
+	<li><%= link_to event.title, event %> <%= event.event_date.to_s(:long) %></li>
+    <% end %>
+        <li><%= link_to 'Add Event', new_event_path(:person_id => @person.id) %></li>
+    </ul>
+
+    <h2>Photos</h2>
+    <ul>
+    <% @person.photos.each do |p| %>
+        <li><%= link_to p.title, photo_path(p) %></li>
+    <% end %>
+        <li><%= link_to 'Add Photo', new_photo_path(:person_id => @person.id) %></li>
+    </ul>
+
+    <%= link_to 'Edit', edit_person_path(@person) %>
+</div>
+
+<div class="arrow">
+    <%= image_tag "/assets/arrow.png" %>
+</div>
+<div class="arrow">
+    <!-- Father -->
+    
+    <div class="parent">
+        <% if @person.father then %>
+        <b>Father:</b>
+        <h2>
+        <%= style_name(@person.father) %>
+        <%= image_tag gender_image(@person.father) %>
+        </h2>
+        
+        <p>
+          <b>Born:</b>
+          <%= birth_info(@person.father) %>
+        </p>
+
+        <% if @person.father.death then %>
+        <p>
+          <b>Death:</b>
+          <%= death_info(@person.father) %>
+        </p>
+        <% end %>
+        <%= link_to image_tag("/assets/rightarrow.png"), person_path(@person.father) %>
+        <% end %>
+    </div>    
+    
+    <!-- Mother -->
+    <div class="parent">
+        <% if @person.mother then %>
+        <b>Mother:</b>
+        <h2>
+        <%= style_name(@person.mother) %>
+        <%= image_tag gender_image(@person.mother) %>
+        </h2>
+        
+        <p>
+          <b>Born:</b>
+          <%= birth_info(@person.mother) %>
+        </p>
+
+        <% if @person.mother.death then %>
+        <p>
+          <b>Death:</b>
+          <%= death_info(@person.mother) %>
+        </p>
+        <% end %>
+        <%= link_to image_tag("/assets/rightarrow.png"), person_path(@person.mother) %>
+        <% end %>
+    </div>
+</div>
