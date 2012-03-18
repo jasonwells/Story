@@ -45,6 +45,13 @@
     <% end %>
         <li><%= link_to 'Add Photo', new_photo_path(:person_id => @person.id) %></li>
     </ul>
+    
+    <h2>Siblings</h2>
+    <ul>
+    <% @person.siblings.each do |s| %>
+    <li><%= link_to s.full_name, person_path(s) %></li>
+    <% end %>
+    </ul>
 
     <%= link_to 'Edit', edit_person_path(@person) %>
 </div>
