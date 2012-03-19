@@ -5,11 +5,13 @@
         <%= style_name(@person) %>
         <%= image_tag gender_image(@person) %>
         </h1>
-
+        
+        <% if @person.birth then %>
         <p>
           <b>Born:</b>
           <%= birth_info(@person) %>
         </p>
+        <% end %>
 
         <% if @person.death then %>
         <p>
