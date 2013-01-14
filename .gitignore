@@ -23,5 +23,8 @@
 # Ignore photos uploaded by Paperclip
 /public/system/photos
 
+# Ignore database config
+/config/database.yml
+
 # Ignore general mac files
 .DS_Store

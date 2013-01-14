@@ -1,0 +1,18 @@
+# Postgres DB
+#   gem install pg
+common: &common
+  adapter: postgresql
+  host: localhost
+  port: 5432
+
+development:
+  <<: *common
+  database: story_development
+
+test:
+  <<: *common
+  database: story_test
+
+production:
+  <<: *common
+  database: story_production
