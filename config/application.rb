@@ -11,8 +11,8 @@ end
 
 module Story
   class Application < Rails::Application
-		# Disable parsing of XML input parameters: CVE-2013-0156
-		ActionDispatch::ParamsParser::DEFAULT_PARSERS.delete(Mime::XML)
+    # Disable parsing of XML input parameters: CVE-2013-0156
+    ActionDispatch::ParamsParser::DEFAULT_PARSERS.delete(Mime::XML)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
