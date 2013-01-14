@@ -7,18 +7,26 @@ module PeopleHelper
   
   # Returns birth date and place string
   def birth_info(p)
-    ret = p.birth.to_s(:long)
-    if p.birth_place != '' then
-      ret = "#{ret} in #{p.birth_place}"
+    if p.birth then
+      ret = p.birth.to_s(:long)
+      if p.birth_place != '' then
+        ret = "#{ret} in #{p.birth_place}"
+      end
+    else
+      ret = "Unknown"
     end
     ret
   end
 
   # Returns death date and place string
   def death_info(p)
-    ret = p.death.to_s(:long)
-    if p.death_place != '' then
-      ret = "#{ret} in #{p.death_place}"
+    if p.death then 
+      ret = p.death.to_s(:long)
+      if p.death_place != '' then
+        ret = "#{ret} in #{p.death_place}"
+      end
+    else
+      ret = 'Unknown'
     end
     ret
   end
